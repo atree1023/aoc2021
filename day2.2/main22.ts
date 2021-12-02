@@ -1,24 +1,26 @@
 import { readFileSync } from 'fs';
 
-const file = readFileSync('./input22.txt', 'utf8').split('\n');
+const fileToAoO = readFileSync('./input22.txt', 'utf8')
+  .split('\n')
+  .map((value) => {
+    const [dir, dist] = value.split(' ');
+    return { direction: dir, distance: Number(dist) };
+  });
 
-let forcount = 0;
-let aimcount = 0;
-let depthcount = 0;
+const sumObj = fileToAoO.reduce(
+  (sum, { direction, distance }) => {
+    if (direction === 'forward') {
+      const distsum = sum.distsum + distance;
+      const depthsum = sum.depthsum + distance * sum.aimsum;
+      return { distsum, aimsum: sum.aimsum, depthsum };
+    }
+    const aimsum =
+      direction === 'down'
+        ? (sum.aimsum += distance)
+        : (sum.aimsum -= distance);
+    return { distsum: sum.distsum, aimsum, depthsum: sum.depthsum };
+  },
+  { distsum: 0, aimsum: 0, depthsum: 0 }
+);
 
-file.forEach((value) => {
-  const instArr = value.split(' ');
-  if (instArr[0] === 'forward') {
-    const forDist = Number(instArr[1]);
-    forcount += forDist;
-    depthcount += forDist * aimcount;
-  } else if (instArr[0] === 'up') {
-    aimcount -= Number(instArr[1]);
-  } else if (instArr[0] === 'down') {
-    aimcount += Number(instArr[1]);
-  } else {
-    console.log('Error', instArr);
-  }
-});
-
-console.log(forcount * depthcount);
+console.log(sumObj.distsum * sumObj.depthsum);
