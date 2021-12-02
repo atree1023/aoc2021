@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 
-const fileToAoO = readFileSync('./input.txt', 'utf8')
+const fileToAoO = readFileSync('./input21.txt', 'utf8')
   .split('\n')
   .map((value) => {
     const [dir, dist] = value.split(' ');

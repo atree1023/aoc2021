@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 
-const file = readFileSync('./input.txt', 'utf8').split('\n');
+const file = readFileSync('./input22.txt', 'utf8').split('\n');
 
 let forcount = 0;
 let aimcount = 0;
