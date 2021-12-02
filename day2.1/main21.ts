@@ -1,21 +1,25 @@
 import { readFileSync } from 'fs';
 
-const file = readFileSync('./day2.1/input.txt', 'utf8').split('\n');
+const fileToAoO = readFileSync('./input.txt', 'utf8')
+  .split('\n')
+  .map((value) => {
+    const [dir, dist] = value.split(' ');
+    return { direction: dir, distance: Number(dist) };
+  });
 
-let forcount = 0;
-let vertcount = 0;
+const sumObj = fileToAoO.reduce(
+  (sum, { direction, distance }) => {
+    if (direction === 'forward') {
+      const distsum = sum.distsum + distance;
+      return { distsum, depthsum: sum.depthsum };
+    }
+    const depthsum =
+      direction === 'down'
+        ? (sum.depthsum += distance)
+        : (sum.depthsum -= distance);
+    return { distsum: sum.distsum, depthsum };
+  },
+  { distsum: 0, depthsum: 0 }
+);
 
-file.forEach((value) => {
-  const instArr = value.split(' ');
-  if (instArr[0] === 'forward') {
-    forcount += Number(instArr[1]);
-  } else if (instArr[0] === 'up') {
-    vertcount -= Number(instArr[1]);
-  } else if (instArr[0] === 'down') {
-    vertcount += Number(instArr[1]);
-  } else {
-    console.log('Error', instArr);
-  }
-});
-
-console.log(forcount * vertcount);
+console.log(sumObj.distsum * sumObj.depthsum);

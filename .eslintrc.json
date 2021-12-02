@@ -31,7 +31,6 @@
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-else-return": ["error", { "allowElseIf": false }],
     "object-shorthand": ["error", "always"],
-    "no-param-reassign": "error",
     "prefer-rest-params": "error",
     "array-callback-return": "error",
     "prefer-destructuring": [
