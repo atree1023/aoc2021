@@ -13,9 +13,6 @@
     "url": "https://github.com/atree1023/aoc2021/issues"
   },
   "homepage": "https://github.com/atree1023/aoc2021#readme",
-  "scripts": {
-    "dev": "nodemon index"
-  },
   "type": "module",
   "devDependencies": {
     "@types/node": "^16.11.11",
@@ -27,7 +24,6 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
-    "nodemon": "^2.0.15",
     "typescript": "^4.5.2"
   }
 }
