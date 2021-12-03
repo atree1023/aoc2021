@@ -8,7 +8,7 @@ const getRating = (inc: number, exc: number): number => {
     return numArr.map(Number);
   });
 
-  for (let index = 0; index < 12; index++) {
+  for (let index = 0; index < fileToAoA[0].length; index++) {
     let colTotal = 0;
 
     if (fileToAoA.length === 1) {
