@@ -1,12 +1,12 @@
 import { readFileSync } from 'fs';
 
+const file = readFileSync('./input32.txt', 'utf8').split('\n');
+
 const getRating = (inc: number, exc: number): number => {
-  let fileToAoA = readFileSync('./input32.txt', 'utf8')
-    .split('\n')
-    .map((value) => {
-      const numArr = value.split('');
-      return numArr.map(Number);
-    });
+  let fileToAoA = file.map((value) => {
+    const numArr = value.split('');
+    return numArr.map(Number);
+  });
 
   for (let index = 0; index < 12; index++) {
     let colTotal = 0;
