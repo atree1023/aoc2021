@@ -24,7 +24,7 @@
 
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "yarn install",
-  "postCreateCommand": "apk add git && git config --global user.name atree1023 && git config --global user.email 64298844+atree1023@users.noreply.github.com && npm install typescript -g"
+  "postCreateCommand": "apk add git && git config --global user.name atree1023 && git config --global user.email 64298844+atree1023@users.noreply.github.com && npm update -g && npm install typescript -g"
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   //"remoteUser": "node"
