@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/indent */
 import { readFileSync } from 'fs';
 
 const fileToAoA = readFileSync('./input31.txt', 'utf8')
@@ -10,28 +11,20 @@ const fileToAoA = readFileSync('./input31.txt', 'utf8')
 const totalArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 fileToAoA.forEach((value) =>
-  value.forEach((value, index) => {
-    if (value === 1) {
-      totalArr[index] += value;
+  value.forEach((innervalue, index) => {
+    if (innervalue === 1) {
+      totalArr[index] += innervalue;
     }
   })
 );
 
 const gamma = parseInt(
-  totalArr
-    .map((value) => {
-      return value >= 500 ? 1 : 0;
-    })
-    .join(''),
+  totalArr.map((value) => (value >= 500 ? 1 : 0)).join(''),
   2
 );
 
 const epsilon = parseInt(
-  totalArr
-    .map((value) => {
-      return value < 500 ? 1 : 0;
-    })
-    .join(''),
+  totalArr.map((value) => (value < 500 ? 1 : 0)).join(''),
   2
 );
 

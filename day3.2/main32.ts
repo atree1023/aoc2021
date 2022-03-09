@@ -8,7 +8,7 @@ const getRating = (inc: number, exc: number): number => {
     return numArr.map(Number);
   });
 
-  for (let index = 0; index < fileToAoA[0].length; index++) {
+  for (let index = 0; index < fileToAoA[0].length; index += 1) {
     let colTotal = 0;
 
     if (fileToAoA.length === 1) {
@@ -22,13 +22,9 @@ const getRating = (inc: number, exc: number): number => {
     });
 
     if (colTotal >= fileToAoA.length / 2) {
-      fileToAoA = fileToAoA.filter((value) => {
-        return value[index] === inc;
-      });
+      fileToAoA = fileToAoA.filter((value) => value[index] === inc);
     } else {
-      fileToAoA = fileToAoA.filter((value) => {
-        return value[index] === exc;
-      });
+      fileToAoA = fileToAoA.filter((value) => value[index] === exc);
     }
   }
   return parseInt(fileToAoA[0].join(''), 2);

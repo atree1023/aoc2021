@@ -9,15 +9,22 @@ const fileToAoO = readFileSync('./input21.txt', 'utf8')
 
 const sumObj = fileToAoO.reduce(
   (sum, { direction, distance }) => {
-    if (direction === 'forward') {
-      const distsum = sum.distsum + distance;
-      return { distsum, depthsum: sum.depthsum };
+    switch (direction) {
+      case 'forward': {
+        const distsum = sum.distsum + distance;
+        return { distsum, depthsum: sum.depthsum };
+      }
+      case 'down': {
+        const depthsum = sum.depthsum + distance;
+        return { distsum: sum.distsum, depthsum };
+      }
+      case 'up': {
+        const depthsum = sum.depthsum - distance;
+        return { distsum: sum.distsum, depthsum };
+      }
+      default:
+        return { distsum: sum.distsum, depthsum: sum.depthsum };
     }
-    const depthsum =
-      direction === 'down'
-        ? (sum.depthsum += distance)
-        : (sum.depthsum -= distance);
-    return { distsum: sum.distsum, depthsum };
   },
   { distsum: 0, depthsum: 0 }
 );
