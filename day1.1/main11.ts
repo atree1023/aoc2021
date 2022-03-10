@@ -1,9 +1,8 @@
 import { readFileSync } from 'fs';
 
-const file = readFileSync('./input11.txt', 'utf8').split('\n').map(Number);
+const rollingSum = readFileSync('./input11.txt', 'utf8')
+  .split('\n')
+  .map(Number)
+  .filter((value, index, array) => value < array[index + 1]);
 
-const filterIndex = file.filter(
-  (value, index, array) => value < array[index + 1]
-);
-
-console.log(filterIndex.length);
+console.log(rollingSum.length);
