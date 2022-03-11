@@ -16,7 +16,8 @@
   "extensions": [
     "dbaeumer.vscode-eslint",
     "github.vscode-pull-request-github",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-next"
   ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
