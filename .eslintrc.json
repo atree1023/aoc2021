@@ -19,9 +19,7 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "no-console": "off",
-    "operator-linebreak": "off",
     "implicit-arrow-linebreak": "off",
-    "function-paren-newline": "off",
-    "@typescript-eslint/comma-dangle": "off"
+    "function-paren-newline": "off"
   }
 }

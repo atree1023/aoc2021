@@ -25,7 +25,7 @@ const sumObj = readFileSync('./input21.txt', 'utf8')
           return { distsum: sum.distsum, depthsum: sum.depthsum };
       }
     },
-    { distsum: 0, depthsum: 0 }
+    { distsum: 0, depthsum: 0 },
   );
 
 console.log(sumObj.distsum * sumObj.depthsum);
